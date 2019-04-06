@@ -1,7 +1,9 @@
 package pl.wszib.controllers;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.wszib.domains.Samochod;
 
@@ -11,6 +13,13 @@ import java.util.List;
 
 @org.springframework.stereotype.Controller
 public class Controller {
+
+    List<Samochod> listaSamochodow;
+
+     public Controller(){
+         listaSamochodow = listaSamochodw();
+     }
+
 
     @RequestMapping("car/list")
     public String list (Model model){
@@ -38,10 +47,28 @@ public class Controller {
 
     @RequestMapping("car/single/{index}")
     public String single (@PathVariable int index, Model model){
-        List<Samochod> list = listaSamochodw();
-        model.addAttribute("samochod", list.get(index));
+        //List<Samochod> list = listaSamochodw();
+        model.addAttribute("samochod", listaSamochodow.get(index));
         return "singleCar";
     }
+
+
+
+    @GetMapping("forms")
+    public String froms(Model model){
+        model.addAttribute("car", new Samochod());
+        return "formsTemplate";
+    }
+
+
+    @PostMapping("formsSave")
+    public String formsSave(Samochod samochod, Model model){
+        listaSamochodow.add(samochod);
+        return "successTemplate";
+
+    }
+
+
 
 
 }

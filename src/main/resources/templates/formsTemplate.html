@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{formsSave}" th:object="${car}" method="post">
+    <lable for="marka">marka</lable>
+    <input name="marka" type="text" th:field="*{marka}">
+
+    <lable for="model">model</lable>
+    <input name="model" type="text" th:field="*{model}">
+
+    <lable for="rocznik">rocznik</lable>
+    <input name="rocznik" type="text" th:field="*{rocznik}">
+
+    <lable for="cena">cena</lable>
+    <input name="cena" type="text" th:field="*{cena}">
+
+    <lable for="pzrebiegKM">przebieg</lable>
+    <input name="pzrebiegKM" type="text" th:field="*{pzrebiegKM}">
+
+    <input type="submit" value="Zapisz">
+</form>
+
+
+</body>
+</html>
