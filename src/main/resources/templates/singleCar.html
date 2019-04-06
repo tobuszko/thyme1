@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/style.css}"  href="../static/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="kontener">
+<table>
+    <thead>
+    <th>lp.</th>
+    <th>Marka</th>
+    <th>Model</th>
+    <th>Cena</th>
+    <th>Przebieg</th>
+    <th>Rocznik</th>
+    </thead>
+    <tbody>
+    <tr th:each="samochod,  iterStat : ${samochod}">
+        <td th:text="${iterStat.index}"></td>
+        <td th:text="${samochod.getMarka()}"></td>
+        <td th:text="${samochod.getModel()}"></td>
+        <td th:text="${samochod.getCena()}"></td>
+        <td th:text="${samochod.getPzrebiegKM()}"></td>
+        <td th:text="${samochod.getRocznik()}"></td>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</div>
+
+</body>
+</html>

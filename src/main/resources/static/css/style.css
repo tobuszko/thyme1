@@ -1,0 +1,17 @@
+body {
+    background-color: aliceblue;
+    font-family: "Bell MT";
+    font-size: 150%;
+}
+
+
+table {
+    margin: 20px;
+    padding: 10px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+}
+
+
+
